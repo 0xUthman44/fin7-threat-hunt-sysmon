@@ -1,4 +1,7 @@
 🔍 Fin7 Threat Hunt – Sysmon Log Analysis
+
+
+
 📌 Overview
 This project simulates a real-world SOC investigation where a threat intelligence alert flagged communication with a known malicious IP (**192.168.10.45**) associated with Fin7 activity.
 
@@ -44,8 +47,7 @@ The attacker avoided detection by using **Living-off-the-Land (LotL) techniques*
 - Use of trusted tools reduced antivirus detection
 - Activity blended with normal system operations
 
-📸  
-![Suspicious Process](screenshots/suspicious_process.png)
+
 
 ---
  🔹 Step 4: Persistence Mechanism
@@ -54,17 +56,15 @@ Persistence was established using **Windows Scheduled Tasks** via `schtasks.exe`
 - The task was configured to run every **30 minutes**
 - Ensures continued execution after reboot
 
-📸  
-![Persistence](screenshots/persistence.png)
 
----
+
+
  🔹 Step 5: PowerShell Payload (Obfuscated)
 A suspicious PowerShell command was identified using Base64 encoding.
 
-📸  
-![Encoded Command](screenshots/powershell_encoded.png)
 
----
+
+
 
 ### 🔓 Decoded Payload
 
